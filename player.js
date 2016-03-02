@@ -78,7 +78,7 @@ exports = module.exports = {
 
         this.checkCommon(gamestate, bet, firstcard, secondcard);
 
-        return bet(0);
+        return bet(call*3);
     },
 
     bet: function (gamestate, bet) {
