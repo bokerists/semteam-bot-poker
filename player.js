@@ -45,13 +45,13 @@ exports = module.exports = {
 
         if (this.checkCoppia(firstCard, secondCard)) {
             if (this.rankingCard(firstCard) >= '11')
-                return bet(call * 3);
+                return bet(call * 5);
 
-            return bet(call * 3);
+            return bet(call * 5);
         }
 
         if (this.isAssopluskappa(firstCard, secondCard)) {
-            return bet(call * 4);
+            return bet(call * 5);
         }
 
         if (this.isConnected(firstCard, secondCard) && this.isSuited(firstSuit, secondSuit)) {

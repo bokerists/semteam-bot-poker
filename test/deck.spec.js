@@ -1,7 +1,7 @@
 
 var assert = chai.assert;
 
-
+/*
 
 describe('Deck', function () {
     it('should contain 52 cards before and after shuffling', function () {
@@ -33,7 +33,7 @@ describe('Deck', function () {
             assert(rankGroups[keys[i]].length === 4);
         }
     });*/
-
+/*
     it('should be modified when a card is drawn', function () {
         var deck = new Deck();
         deck.shuffle();
@@ -53,4 +53,4 @@ describe('Deck', function () {
     });
 
 
-});
+});*/

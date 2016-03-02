@@ -1,6 +1,6 @@
 
 var assert = chai.assert;
-
+/*
 describe('Card', function () {
     it('should display the short-hand syntax for card names', function () {
         var card = new Card('J', 'Spades');
@@ -16,3 +16,5 @@ describe('Card', function () {
         assert.equal(card.toString(), 'A♥');
     });
 });
+
+*/
