@@ -1,2 +1,18 @@
-# semteam-bot-poker
-Just a bot, that likes play hold'em poker
+##Setup environment
+
+```
+npm install
+```
+
+##Run environment
+
+```
+grunt defualt
+```
+###IE launcher
+
+To launch IE you need to add the following ENV var in your system settings:
+
+```
+IE_BIN=C:\Program Files\Internet Explorer\iexplore.exe
+```

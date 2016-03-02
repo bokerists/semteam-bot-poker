@@ -1,13 +1,30 @@
 {
-  "name": "bot-player",
-  "version": "1.0.0",
-  "description": "Texas hold'em poker bot player",
-  "main": "server.js",
-  "dependencies": {
-    "express": "4.13.3",
-    "body-parser": "1.14.1"
-  },
-  "scripts": {
-    "start": "node index"
-  }
+    "name": "bot-player",
+    "version": "1.0.0",
+    "description": "Texas hold'em poker bot player",
+    "main": "server.js",
+    "dependencies": {
+        "express": "4.13.3",
+        "body-parser": "1.14.1",
+        "chai": "^1.10.0",
+        "grunt": "^0.4.5",
+        "grunt-blanket-mocha": "^0.4.1",
+        "grunt-karma": "^0.12.1",
+        "karma": "^0.13.10",
+        "karma-chrome-launcher": "^0.2.0",
+        "karma-firefox-launcher": "^0.1.6",
+        "karma-ie-launcher": "^0.2.0",
+        "karma-mocha-reporter": "^1.1.0",
+        "karma-html2js-preprocessor": "^0.1.0",
+        "karma-mocha": "^0.2.0",
+        "karma-phantomjs-launcher": "^0.2.1",
+        "load-grunt-tasks": "^3.1.0",
+        "mocha": "^2.3.3",
+        "phantomjs": "^1.9.18",
+        "sinon": "^1.12.2",
+        "sinon-chai": "^2.6.0"
+    },
+    "scripts": {
+        "start": "node index"
+    }
 }
