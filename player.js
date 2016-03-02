@@ -96,3 +96,4 @@ exports = module.exports = {
                 return bet(call * 3);
         }*/
     }
+};
