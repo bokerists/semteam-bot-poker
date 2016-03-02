@@ -50,7 +50,7 @@ exports = module.exports = {
 
     mainCore: function (gamestate, bet, firstcard, secondcard) {
         var call = gamestate.callAmount;
-        var sb= 0;
+        
         if(call==0){
             call=25;
             call=call+gamestate.sb;
@@ -79,7 +79,7 @@ exports = module.exports = {
 
         this.checkCommon(gamestate, bet, firstcard, secondcard);
 
-        return bet(0);
+        return bet(call);
     },
 
     bet: function (gamestate, bet) {
