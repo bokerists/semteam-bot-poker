@@ -57,8 +57,6 @@ exports = module.exports = {
         if (this.isConnected(firstCard, secondCard) && this.isSuited(firstSuit, secondSuit)) {
             if (firstCard >= '11')
                 return bet(call * 3);
-
-            return bet(call);
         }
         return bet(0);
     }

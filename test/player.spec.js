@@ -46,5 +46,6 @@ describe('Player', function () {
     it('betterThanEqual checca', function () {
         assert(betterThanOrEqual('4',5) === false);
         assert(betterThanOrEqual('4',4));
-    })
+    });
+    
 });
