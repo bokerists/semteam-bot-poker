@@ -53,7 +53,6 @@ exports = module.exports = {
         
         if(call==0){
             call=25;
-            call=call+gamestate.sb;
         }
         
         
