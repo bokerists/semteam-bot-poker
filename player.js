@@ -50,22 +50,28 @@ exports = module.exports = {
 
     mainCore: function (gamestate, bet, firstcard, secondcard) {
         var call = gamestate.callAmount;
-
+        var sb= 0;
+        if(call==0){
+            call=25;
+            call=call+gamestate.sb;
+        }
+        
+        
         if (this.checkCoppia(firstcard.rank, secondcard.rank)) {
             if (this.rankingCard(firstcard.rank) >= '11')
-                return bet(call+1 * 4);
+                return bet(call+sb * 4);
 
-            return bet(call+1 * 2);
+            return bet(call * 2);
         }
 
         if (this.isAssopluskappa(secondcard.rank, secondcard.rank)) {
-            return bet(call+1 * 2);
+            return bet(call * 2);
         }
 
         if (this.isConnected(firstcard.rank, secondcard.rank) &&
             this.isSuited(firstcard.type, secondcard.type)) {
             if (firstcard.rank >= '11')
-                return bet(call+1 * 3);
+                return bet(call * 3);
 
 
             // return bet(call * 3);
