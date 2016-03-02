@@ -33,19 +33,43 @@ exports = module.exports = {
     isSuited: function (suitA, suitB) {
         return suitA === suitB;
     },
-    
-    checkCommon: function(gamestate){
-        var commonCard= gamestate.commonCards;
-        
-        
+
+    checkCommon: function (gamestate) {
+        var commonCard = gamestate.commonCards;
+
+
+        commonCard.forEach(function () {
+
+        });
+    },
+
+    mainCore: function (gamestate, bet, firstcard, secondcard) {
+        var call = gamestate.callAmount;
+
+        if (this.checkCoppia(firstcard.rank, secondcard.rank)) {
+            if (this.rankingCard(firstcard.rank) >= '11')
+                return bet(call * 5);
+
+            return bet(call * 5);
+        }
+
+        if (this.isAssopluskappa(secondcard.rank, secondcard.rank)) {
+            return bet(call * 5);
+        }
+
+        if (this.isConnected(firstcard.rank, secondcard.rank) &&
+            this.isSuited(firstcard.type, secondcard.type)) {
+            if (firstcard.rank >= '11')
+                return bet(call * 3);
+        }
+
+        return bet(0);
     },
 
     bet: function (gamestate, bet) {
-        var me = gamestate.me;
 
-        var call = gamestate.callAmount;
-
-        if (this.checkCoppia(gamestate.players[me].cards[0].rank, gamestate.players[me].cards[1].rank)) {
+        this.mainCore(gamestate.players[me].cards[0], gamestate.players[me].cards[1]);
+        /*if (this.checkCoppia(gamestate.players[me].cards[0].rank, gamestate.players[me].cards[1].rank)) {
             if (this.rankingCard(gamestate.players[me].cards[0].rank) >= '11')
                 return bet(call * 5);
 
@@ -60,6 +84,5 @@ exports = module.exports = {
          this.isSuited(gamestate.players[me].cards[0].type, gamestate.players[me].cards[1].type)) {
             if (gamestate.players[me].cards[0].rank >= '11')
                 return bet(call * 3);
-        }
-        return bet(0);
+        }*/
     }
