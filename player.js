@@ -58,7 +58,7 @@ exports = module.exports = {
         
         if (this.checkCoppia(firstcard.rank, secondcard.rank)) {
             if (this.rankingCard(firstcard.rank) >= '11')
-                return bet(call+sb * 4);
+                return bet(call * 4);
 
             return bet(call * 2);
         }
@@ -73,7 +73,7 @@ exports = module.exports = {
                 return bet(call * 3);
 
 
-            return bet(call * 3);
+            //return bet(call * 3);
         }
 
         this.checkCommon(gamestate, bet, firstcard, secondcard);
