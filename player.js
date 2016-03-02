@@ -36,27 +36,24 @@ exports = module.exports = {
     },
 
     bet: function (gamestate, bet) {
-        var allInAmount = 10000000;
         var me = gamestate.me;
 
-        var myCards = gamestate.players[me].cards;
-        var firstCard = myCards[0].rank;
-        var firstSuit = myCards[0].type;
-        var secondCard = myCards[1].rank;
-        var secondSuit = myCards[1].type;
+        var firstCard = gamestate.players[me].cards[0].rank;
+        var firstSuit = gamestate.players[me].cards[0].type;
+        var secondCard = gamestate.players[me].cards[1].rank;
+        var secondSuit = gamestate.players[me].cards[1].type;
         var pot = gamestate.pot;
         var call = gamestate.callAmount;
 
-        // Vado allin con una coppia
         if (this.checkCoppia(firstCard, secondCard)) {
             if (this.betterThanOrEqual(this.rankingCard(firstCard), '11'))
-                return bet(allInAmount);
+                return bet(call * 3);
 
             return bet(call * 3);
         }
 
         if (this.isAssopluskappa(firstCard, secondCard)) {
-            return bet(allInAmount);
+            return bet(call * 3);
         }
 
         if (this.isConnected(firstCard, secondCard) && this.isSuited(firstSuit, secondSuit)) {
