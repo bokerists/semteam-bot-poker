@@ -53,13 +53,13 @@ exports = module.exports = {
 
         if (this.checkCoppia(firstcard.rank, secondcard.rank)) {
             if (this.rankingCard(firstcard.rank) >= '11')
-                return bet(call * 5);
+                return bet(call * 4);
 
-            return bet(call * 5);
+            return bet(call * 2);
         }
 
         if (this.isAssopluskappa(secondcard.rank, secondcard.rank)) {
-            return bet(call * 5);
+            return bet(call * 2);
         }
 
         if (this.isConnected(firstcard.rank, secondcard.rank) &&
@@ -68,12 +68,12 @@ exports = module.exports = {
                 return bet(call * 3);
 
 
-           // return bet(call * 3);
+            // return bet(call * 3);
         }
 
         this.checkCommon(gamestate, bet, firstcard, secondcard);
 
-        return bet(0);
+        return bet(call);
     },
 
     bet: function (gamestate, bet) {
