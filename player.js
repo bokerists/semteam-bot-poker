@@ -45,7 +45,7 @@ exports = module.exports = {
 
         if (this.checkCoppia(firstCard, secondCard)) {
             if (this.rankingCard(firstCard) >= '11')
-                return bet(call * 5);
+                return bet(call * 3);
 
             return bet(call * 3);
         }
