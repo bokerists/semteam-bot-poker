@@ -36,10 +36,10 @@ exports = module.exports = {
 
     checkCommon: function (gamestate) {
         var commonCard = gamestate.commonCards;
-
+       var  self=this;
 
         commonCard.forEach(function () {
-
+              self.mainCore(gamestate)  
         });
     },
 
@@ -68,7 +68,7 @@ exports = module.exports = {
 
     bet: function (gamestate, bet) {
 
-        this.mainCore(gamestate.players[me].cards[0], gamestate.players[me].cards[1]);
+        this.mainCore(gamestate, bet, gamestate.players[me].cards[0], gamestate.players[me].cards[1]);
         /*if (this.checkCoppia(gamestate.players[me].cards[0].rank, gamestate.players[me].cards[1].rank)) {
             if (this.rankingCard(gamestate.players[me].cards[0].rank) >= '11')
                 return bet(call * 5);
