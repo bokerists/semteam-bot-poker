@@ -34,12 +34,17 @@ exports = module.exports = {
         return suitA === suitB;
     },
 
-    checkCommon: function (gamestate) {
+    checkCommon: function (gamestate, bet, firstcard, secondcard) {
         var commonCard = gamestate.commonCards;
-       var  self=this;
+        var self = this;
 
-        commonCard.forEach(function () {
-              self.mainCore(gamestate)  
+        commonCard.forEach(function (element) {
+            self.mainCore(gamestate, bet, firstcard, element);
+        });
+
+
+        commonCard.forEach(function (element) {
+            self.mainCore(gamestate, bet, secondcard, element);
         });
     },
 
@@ -62,6 +67,8 @@ exports = module.exports = {
             if (firstcard.rank >= '11')
                 return bet(call * 3);
         }
+
+        this.checkCommon(gamestate, bet, firstcard, secondcard);
 
         return bet(0);
     },
