@@ -11,8 +11,10 @@ exports = module.exports = {
 
     rankingCard: function (rank) {
         if (rank === '2' || rank === '3' ||
-            rank === '3' || rank === '4' || rank === '5' || rank === '6' || rank === '7'
-            || rank === '8' || rank === '9' || rank === '10') return rank;
+            rank === '3' || rank === '4' ||
+            rank === '5' || rank === '6' ||
+            rank === '7' || rank === '8' ||
+            rank === '9' || rank === '10') return rank;
 
         if (rank === 'J') return '11';
         if (rank === 'Q') return '12';
@@ -25,10 +27,7 @@ exports = module.exports = {
     },
 
     isConnected: function (a, b) {
-        var a = parseInt(a);
-        var b = parseInt(b);
-
-        return (a + 1 === b) || b + 1 === a;
+        return (parseInt(a) + 1 === parseInt(b)) || parseInt(b) + 1 === parseInt(a);
     },
 
     isSuited: function (suitA, suitB) {
@@ -42,29 +41,24 @@ exports = module.exports = {
         var firstSuit = gamestate.players[me].cards[0].type;
         var secondCard = gamestate.players[me].cards[1].rank;
         var secondSuit = gamestate.players[me].cards[1].type;
-        var pot = gamestate.pot;
         var call = gamestate.callAmount;
 
         if (this.checkCoppia(firstCard, secondCard)) {
-            if (this.betterThanOrEqual(this.rankingCard(firstCard), '11'))
-                return bet(call * 3);
+            if (this.rankingCard(firstCard) >= '11')
+                return bet(call * 5);
 
             return bet(call * 3);
         }
 
         if (this.isAssopluskappa(firstCard, secondCard)) {
-            return bet(call * 3);
+            return bet(call * 4);
         }
 
         if (this.isConnected(firstCard, secondCard) && this.isSuited(firstSuit, secondSuit)) {
-            if (this.betterThanOrEqual(firstCard, '11'))
+            if (firstCard >= '11')
                 return bet(call * 3);
 
             return bet(call);
         }
-
-
         return bet(0);
-
-
     }
