@@ -66,6 +66,9 @@ exports = module.exports = {
             this.isSuited(firstcard.type, secondcard.type)) {
             if (firstcard.rank >= '11')
                 return bet(call * 3);
+
+
+            return bet(call * 3);
         }
 
         this.checkCommon(gamestate, bet, firstcard, secondcard);
@@ -74,7 +77,7 @@ exports = module.exports = {
     },
 
     bet: function (gamestate, bet) {
-
+        var me = gamestate.me;
         this.mainCore(gamestate, bet, gamestate.players[me].cards[0], gamestate.players[me].cards[1]);
         /*if (this.checkCoppia(gamestate.players[me].cards[0].rank, gamestate.players[me].cards[1].rank)) {
             if (this.rankingCard(gamestate.players[me].cards[0].rank) >= '11')
